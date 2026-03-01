@@ -1,5 +1,7 @@
 
 
+import { mergeConfig } from 'vite'
+
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
   stories: ['../stories/**/*.stories.@(ts|tsx)'],
@@ -10,5 +12,12 @@ const config = {
     '@storybook/addon-docs',
   ],
   framework: '@storybook/react-vite',
+  async viteFinal(baseConfig) {
+    return mergeConfig(baseConfig, {
+      esbuild: {
+        jsx: 'automatic',
+      },
+    })
+  },
 }
 export default config;
