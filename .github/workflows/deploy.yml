@@ -36,8 +36,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Deploy
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Ensure CNAME file
         env:
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
-          GTM_TOKEN: ${{ secrets.GTM_TOKEN }}
-        run: npm run deploy
+        run: |
+          if [ -z "$NEXT_PUBLIC_SITE_URL" ]; then
+            echo "NEXT_PUBLIC_SITE_URL is not set, skipping CNAME file."
+          else
+            printf "%s\n" "$NEXT_PUBLIC_SITE_URL" > storybook-static/CNAME
+            echo "Wrote storybook-static/CNAME: $NEXT_PUBLIC_SITE_URL"
+          fi
+
+      - name: Deploy
+        run: npm --ignore-scripts run deploy
