@@ -98,4 +98,10 @@ In any other repository you can add the same design system as a submodule:
 git submodule add https://github.com/<your-username>/portfolio-design-system.git design-system
 ```
 
+Or run it in one command (add + initialize immediately):
+
+```bash
+git submodule add https://github.com/iktnb/design-system.git design-system && git submodule update --init --recursive
+```
+
 Then configure imports (e.g. alias `@/design-system`) and `theme.css` setup as described in `design-system/README.md`.
