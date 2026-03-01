@@ -12,43 +12,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Prepare repository
+        uses: iktnb/github-utils/.github/actions/prepare-repo@v1
         with:
           node-version: "20"
-          cache: "npm"
 
-
-      - name: Configure Git
-        run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-
-      - name: Set remote URL for push (auth)
-        run: |
-          git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
-
-      - name: Install dependencies
-        run: npm ci
+      - name: Configure Git for push
+        uses: iktnb/github-utils/.github/actions/configure-git-push@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Storybook
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
         run: npm run build-storybook
 
       - name: Ensure CNAME file
-        env:
-          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
-        run: |
-          if [ -z "$NEXT_PUBLIC_SITE_URL" ]; then
-            echo "NEXT_PUBLIC_SITE_URL is not set, skipping CNAME file."
-          else
-            printf "%s\n" "$NEXT_PUBLIC_SITE_URL" > storybook-static/CNAME
-            echo "Wrote storybook-static/CNAME: $NEXT_PUBLIC_SITE_URL"
-          fi
+        uses: iktnb/github-utils/.github/actions/ensure-cname@v1
+        with:
+          site_url: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+          output_path: storybook-static
 
       - name: Deploy
         run: npm --ignore-scripts run deploy
