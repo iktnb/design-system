@@ -1,9 +1,9 @@
 export interface IconTechProps {
-  className?: string
-  size?: number
+  className?: string;
+  size?: number;
 }
 
-export function IconTech({ className = '', size = 24 }: IconTechProps) {
+export function IconTech({ className = "", size = 24 }: IconTechProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +21,5 @@ export function IconTech({ className = '', size = 24 }: IconTechProps) {
       <path d="M17 8l4 4-4 4" />
       <path d="M14 4l-4 16" opacity="0.85" />
     </svg>
-  )
+  );
 }

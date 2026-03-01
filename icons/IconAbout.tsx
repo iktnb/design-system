@@ -1,9 +1,9 @@
 export interface IconAboutProps {
-  className?: string
-  size?: number
+  className?: string;
+  size?: number;
 }
 
-export function IconAbout({ className = '', size = 24 }: IconAboutProps) {
+export function IconAbout({ className = "", size = 24 }: IconAboutProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -22,5 +22,5 @@ export function IconAbout({ className = '', size = 24 }: IconAboutProps) {
       <path d="M12 11v6" opacity="0.8" />
       <path d="M9 14h6" opacity="0.8" />
     </svg>
-  )
+  );
 }

@@ -61,15 +61,19 @@ After this, `design-system/` will point to the separate repository. Its contents
 ## 4. Day-to-day usage
 
 - **Clone the portfolio with the submodule:**
+
   ```bash
   git clone --recurse-submodules https://github.com/<username>/my-portfolio.git
   ```
+
   or after a regular `git clone`:
+
   ```bash
   git submodule update --init --recursive
   ```
 
 - **Update design-system to the latest commit:**
+
   ```bash
   cd design-system
   git pull origin main

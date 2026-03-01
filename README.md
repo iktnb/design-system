@@ -40,7 +40,11 @@ Add Google Fonts in `<head>` or in CSS:
 
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin="anonymous"
+/>
 <link
   href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=Orbitron:wght@500;700;800&display=swap"
   rel="stylesheet"
@@ -55,9 +59,9 @@ Add Google Fonts in `<head>` or in CSS:
 Copy the `design-system` folder into your project and import:
 
 ```tsx
-import { Card, GlowButton, SectionReveal, useInView } from '@/design-system'
-import { IconGithub, IconContact } from '@/design-system' 
-import { tokens } from '@/design-system'
+import { Card, GlowButton, SectionReveal, useInView } from "@/design-system";
+import { IconGithub, IconContact } from "@/design-system";
+import { tokens } from "@/design-system";
 ```
 
 Or use paths to the copied folder, e.g. `./design-system` or `@/design-system`, depending on your aliases.
@@ -67,23 +71,23 @@ Or use paths to the copied folder, e.g. `./design-system` or `@/design-system`, 
 When you need colors/fonts outside Tailwind (charts, canvas, inline styles):
 
 ```ts
-import { tokens } from './design-system'
+import { tokens } from "./design-system";
 
-document.body.style.background = tokens.colors.background
+document.body.style.background = tokens.colors.background;
 // or tokens.neon.cyan.glow for boxShadow
 ```
 
 ## Tokens (Summary)
 
-| Token | Purpose |
-|-------|---------|
-| `--color-background` | Page background |
-| `--color-card` | Card/panel background |
-| `--color-accent-cyan` | Primary accent (buttons, highlights) |
-| `--color-accent-violet` | Secondary accent |
-| `--color-primary` | Primary text |
-| `--font-heading` | Headings (Orbitron) |
-| `--font-body` | Body text (Exo 2) |
+| Token                   | Purpose                              |
+| ----------------------- | ------------------------------------ |
+| `--color-background`    | Page background                      |
+| `--color-card`          | Card/panel background                |
+| `--color-accent-cyan`   | Primary accent (buttons, highlights) |
+| `--color-accent-violet` | Secondary accent                     |
+| `--color-primary`       | Primary text                         |
+| `--font-heading`        | Headings (Orbitron)                  |
+| `--font-body`           | Body text (Exo 2)                    |
 
 Tailwind exposes classes such as: `bg-background`, `text-primary`, `text-accent-cyan`, `border-accent-violet`, `font-heading`, `bg-card`, etc.
 

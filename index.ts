@@ -9,7 +9,7 @@ export {
   ProjectCard,
   ReviewStepper,
   SectionReveal,
-} from './components'
+} from "./components";
 export type {
   CardProps,
   GlowButtonProps,
@@ -21,8 +21,8 @@ export type {
   ReviewStepperProps,
   ReviewStepperStep,
   SectionRevealProps,
-} from './components'
-export { useInView } from './hooks/useInView'
+} from "./components";
+export { useInView } from "./hooks/useInView";
 export {
   IconAbout,
   IconContact,
@@ -32,5 +32,5 @@ export {
   IconProjects,
   IconTech,
   IconTelegram,
-} from './icons'
-export { tokens, type DesignTokens } from './tokens'
+} from "./icons";
+export { tokens, type DesignTokens } from "./tokens";

@@ -1,9 +1,9 @@
 export interface IconEmailProps {
-  className?: string
-  size?: number
+  className?: string;
+  size?: number;
 }
 
-export function IconEmail({ className = '', size = 24 }: IconEmailProps) {
+export function IconEmail({ className = "", size = 24 }: IconEmailProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -20,5 +20,5 @@ export function IconEmail({ className = '', size = 24 }: IconEmailProps) {
       <rect x="2" y="4" width="20" height="16" rx="2" />
       <path d="m22 6-10 7L2 6" opacity="0.85" />
     </svg>
-  )
+  );
 }

@@ -1,9 +1,9 @@
 export interface IconLinkedInProps {
-  className?: string
-  size?: number
+  className?: string;
+  size?: number;
 }
 
-export function IconLinkedIn({ className = '', size = 24 }: IconLinkedInProps) {
+export function IconLinkedIn({ className = "", size = 24 }: IconLinkedInProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +21,5 @@ export function IconLinkedIn({ className = '', size = 24 }: IconLinkedInProps) {
       <rect x="2" y="9" width="4" height="12" />
       <circle cx="4" cy="4" r="2" />
     </svg>
-  )
+  );
 }

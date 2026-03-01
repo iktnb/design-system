@@ -1,18 +1,18 @@
-import { type ReactNode } from 'react'
+import { type ReactNode } from "react";
 
 export interface NeonProgressButtonProps {
-  progress: number
-  onClick: () => void
-  ariaLabel: string
-  children: ReactNode
-  className?: string
+  progress: number;
+  onClick: () => void;
+  ariaLabel: string;
+  children: ReactNode;
+  className?: string;
 }
 
-const RING_CIRCUMFERENCE = 125.66
+const RING_CIRCUMFERENCE = 125.66;
 
 function clampProgress(progress: number) {
-  if (Number.isNaN(progress)) return 0
-  return Math.max(0, Math.min(progress, 1))
+  if (Number.isNaN(progress)) return 0;
+  return Math.max(0, Math.min(progress, 1));
 }
 
 export function NeonProgressButton({
@@ -20,9 +20,9 @@ export function NeonProgressButton({
   onClick,
   ariaLabel,
   children,
-  className = '',
+  className = "",
 }: NeonProgressButtonProps) {
-  const safeProgress = clampProgress(progress)
+  const safeProgress = clampProgress(progress);
 
   return (
     <div className={`relative h-12 w-12 ${className}`}>
@@ -62,5 +62,5 @@ export function NeonProgressButton({
         {children}
       </button>
     </div>
-  )
+  );
 }

@@ -1,9 +1,9 @@
 export interface IconContactProps {
-  className?: string
-  size?: number
+  className?: string;
+  size?: number;
 }
 
-export function IconContact({ className = '', size = 24 }: IconContactProps) {
+export function IconContact({ className = "", size = 24 }: IconContactProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -22,5 +22,5 @@ export function IconContact({ className = '', size = 24 }: IconContactProps) {
       <path d="M12 10h.01" opacity="0.8" />
       <path d="M16 10h.01" opacity="0.8" />
     </svg>
-  )
+  );
 }
