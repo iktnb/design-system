@@ -1,0 +1,58 @@
+/**
+ * Premium Portfolio Design System — Theme
+ * Used by app/globals.css. Copy this file when reusing the design system elsewhere.
+ */
+@theme {
+  /* Colors */
+  --color-background: #0B0F19;
+  --color-card: #111827;
+  --color-accent-cyan: #38BDF8;
+  --color-accent-violet: #A78BFA;
+  --color-primary: #E5E7EB;
+
+  /* Typography */
+  --font-heading: "Orbitron", system-ui, sans-serif;
+  --font-body: "Exo 2", system-ui, sans-serif;
+}
+
+/* Neon effects */
+.neon-icon-cyan {
+  filter: drop-shadow(0 0 4px var(--color-accent-cyan))
+    drop-shadow(0 0 12px var(--color-accent-cyan))
+    drop-shadow(0 0 24px var(--color-accent-cyan));
+}
+.neon-icon-violet {
+  filter: drop-shadow(0 0 4px var(--color-accent-violet))
+    drop-shadow(0 0 12px var(--color-accent-violet))
+    drop-shadow(0 0 24px var(--color-accent-violet));
+}
+
+.neon-glow-cyan {
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.15), 0 0 40px rgba(56, 189, 248, 0.08);
+}
+.neon-glow-violet {
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.15), 0 0 40px rgba(167, 139, 250, 0.08);
+}
+
+.neon-text-glow-cyan {
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.6), 0 0 24px rgba(56, 189, 248, 0.3);
+}
+.neon-text-glow-violet {
+  text-shadow: 0 0 12px rgba(167, 139, 250, 0.6), 0 0 24px rgba(167, 139, 250, 0.3);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-primary antialiased;
+    font-family: var(--font-body);
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  h1, h2, h3, .font-heading {
+    font-family: var(--font-heading);
+  }
+}
