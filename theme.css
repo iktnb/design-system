@@ -2,6 +2,8 @@
  * Premium Portfolio Design System — Theme
  * Used by app/globals.css. Copy this file when reusing the design system elsewhere.
  */
+@import "tailwindcss";
+
 @theme {
   /* Colors */
   --color-background: #0B0F19;
