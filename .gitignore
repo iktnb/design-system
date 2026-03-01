@@ -1,0 +1,9 @@
+# When design-system is a standalone repo (e.g. used as git submodule)
+node_modules/
+.DS_Store
+*.log
+.env*
+*.tsbuildinfo
+
+*storybook.log
+storybook-static
