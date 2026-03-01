@@ -67,7 +67,7 @@ export function ReviewStepper({
                 {step.description ? (
                   <span
                     className={
-                      'mt-0.5 block text-xs ' +
+                      'mt-0.5 hidden text-xs sm:block ' +
                       (isUpcoming ? 'text-slate-400' : 'text-slate-300')
                     }
                   >
