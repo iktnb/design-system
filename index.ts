@@ -2,8 +2,13 @@
  * Premium Portfolio Design System
  * Copy this folder into another project and import theme + components as needed.
  */
-export { Card, GlowButton, SectionReveal } from './components'
-export type { CardProps, GlowButtonProps, SectionRevealProps } from './components'
+export { Card, GlowButton, NeonProgressButton, SectionReveal } from './components'
+export type {
+  CardProps,
+  GlowButtonProps,
+  NeonProgressButtonProps,
+  SectionRevealProps,
+} from './components'
 export { useInView } from './hooks/useInView'
 export {
   IconAbout,

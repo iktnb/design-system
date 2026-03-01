@@ -44,6 +44,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scrollbar-color: rgba(56, 189, 248, 0.9) rgba(11, 15, 25, 0.85);
+    scrollbar-width: thin;
   }
   body {
     @apply bg-background text-primary antialiased;
@@ -54,5 +56,33 @@
   }
   h1, h2, h3, .font-heading {
     font-family: var(--font-heading);
+  }
+
+  /* Global neon scrollbars */
+  *::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, rgba(11, 15, 25, 0.95), rgba(17, 24, 39, 0.95));
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 999px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(56, 189, 248, 0.95), rgba(167, 139, 250, 0.85));
+    border: 2px solid rgba(11, 15, 25, 0.85);
+    border-radius: 999px;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.75), 0 0 18px rgba(167, 139, 250, 0.35);
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(103, 232, 249, 0.98), rgba(196, 181, 253, 0.95));
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.95), 0 0 22px rgba(167, 139, 250, 0.5);
+  }
+
+  *::-webkit-scrollbar-corner {
+    background: rgba(11, 15, 25, 0.9);
   }
 }
