@@ -5,6 +5,11 @@ export {
   type NeonProgressButtonProps,
 } from "./NeonProgressButton";
 export {
+  NeonSelect,
+  type NeonSelectOption,
+  type NeonSelectProps,
+} from "./NeonSelect";
+export {
   ProjectCard,
   type ProjectCardHealth,
   type ProjectCardLinkedAction,
