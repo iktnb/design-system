@@ -56,7 +56,7 @@ Copy the `design-system` folder into your project and import:
 
 ```tsx
 import { Card, GlowButton, SectionReveal, useInView } from '@/design-system'
-import { IconGithub, IconContact } from '@/design-system'
+import { IconGithub, IconContact } from '@/design-system' 
 import { tokens } from '@/design-system'
 ```
 
