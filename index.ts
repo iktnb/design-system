@@ -4,6 +4,7 @@
  */
 export {
   Card,
+  DashboardWidgetFrame,
   GlowButton,
   NeonProgressButton,
   NeonSelect,
@@ -13,6 +14,7 @@ export {
 } from "./components";
 export type {
   CardProps,
+  DashboardWidgetFrameProps,
   GlowButtonProps,
   NeonProgressButtonProps,
   NeonSelectOption,

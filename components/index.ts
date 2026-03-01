@@ -1,4 +1,8 @@
 export { Card, type CardProps } from "./Card";
+export {
+  DashboardWidgetFrame,
+  type DashboardWidgetFrameProps,
+} from "./DashboardWidgetFrame";
 export { GlowButton, type GlowButtonProps } from "./GlowButton";
 export {
   NeonProgressButton,
