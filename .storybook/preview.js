@@ -1,4 +1,25 @@
 import '../theme.css'
+import { create } from 'storybook/theming'
+
+const docsTheme = create({
+  base: 'dark',
+  brandTitle: 'IKnow Design System',
+  colorPrimary: '#38BDF8',
+  colorSecondary: '#A78BFA',
+  appBg: '#0B0F19',
+  appContentBg: '#111827',
+  appBorderColor: 'rgba(56, 189, 248, 0.2)',
+  appBorderRadius: 12,
+  textColor: '#E5E7EB',
+  textInverseColor: '#0B0F19',
+  barTextColor: '#9CA3AF',
+  barSelectedColor: '#38BDF8',
+  barBg: '#0F172A',
+  inputBg: '#111827',
+  inputBorder: 'rgba(167, 139, 250, 0.35)',
+  inputTextColor: '#E5E7EB',
+  inputBorderRadius: 8,
+})
 
 /** @type { import('@storybook/react-vite').Preview } */
 const preview = {
@@ -22,6 +43,9 @@ const preview = {
       // 'error' - fail CI on a11y violations
       // 'off' - skip a11y checks entirely
       test: 'todo',
+    },
+    docs: {
+      theme: docsTheme,
     },
   },
 }
