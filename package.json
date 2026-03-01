@@ -1,0 +1,50 @@
+{
+  "name": "@iknow/design-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Portfolio UI design system",
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./theme.css": "./theme.css"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "lint": "echo \"No standalone lint configured yet\"",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "predeploy": "npm run build-storybook",
+    "deploy": "gh-pages -d storybook-static --dotfiles"
+  },
+  "keywords": [
+    "design-system",
+    "ui",
+    "react",
+    "tailwind"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^5.0.1",
+    "@storybook/addon-a11y": "^10.2.13",
+    "@storybook/addon-docs": "^10.2.13",
+    "@storybook/addon-onboarding": "^10.2.13",
+    "@storybook/addon-vitest": "^10.2.13",
+    "@storybook/react-vite": "^10.2.13",
+    "@vitest/browser-playwright": "^4.0.18",
+    "@vitest/coverage-v8": "^4.0.18",
+    "gh-pages": "^6.3.0",
+    "playwright": "^1.58.2",
+    "prop-types": "^15.8.1",
+    "storybook": "^10.2.13",
+    "vitest": "^4.0.18"
+  }
+}
