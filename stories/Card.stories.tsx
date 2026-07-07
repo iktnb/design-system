@@ -26,8 +26,8 @@ export const WithBody: Story = {
   args: {
     children: (
       <div className="space-y-2">
-        <h3 className="font-heading text-lg text-primary">Project Card</h3>
-        <p className="text-sm text-secondary">
+        <h3 className="ds-text font-heading text-lg">Project Card</h3>
+        <p className="ds-text-muted text-sm">
           Reusable card with glassmorphism and subtle neon hover.
         </p>
       </div>

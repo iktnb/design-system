@@ -31,10 +31,7 @@ export function ReviewStepper({
 
   return (
     <ol
-      className={
-        "grid gap-2 rounded-2xl border border-slate-400/25 bg-[linear-gradient(180deg,rgba(17,24,39,0.9),rgba(2,6,23,0.95))] p-3 " +
-        className
-      }
+      className={"ds-stepper grid gap-2 p-3 " + className}
       aria-label={labels.listAria}
     >
       {steps.map((step, index) => {
@@ -47,12 +44,12 @@ export function ReviewStepper({
           <li key={step.id}>
             <button
               className={
-                "flex w-full cursor-pointer items-start gap-3 rounded-xl border px-3 py-2 text-left transition-[transform,box-shadow,background-color,border-color] duration-200 ease-in-out hover:-translate-y-px focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/65 " +
+                "ds-step-button flex w-full cursor-pointer items-start gap-3 px-3 py-2 text-left focus:outline-none " +
                 (isCurrent
-                  ? "border-sky-400/65 bg-sky-400/12 shadow-[0_0_16px_rgba(56,189,248,0.2)]"
+                  ? "ds-step-button-current"
                   : isCompleted
-                    ? "border-emerald-400/45 bg-emerald-400/10"
-                    : "border-slate-400/30 bg-slate-900/55")
+                    ? "ds-step-button-completed"
+                    : "")
               }
               type="button"
               aria-current={isCurrent ? "step" : undefined}
@@ -61,25 +58,25 @@ export function ReviewStepper({
             >
               <span
                 className={
-                  "mt-0.5 inline-grid h-6 w-6 shrink-0 place-items-center rounded-full border text-xs font-bold " +
+                  "ds-step-marker mt-0.5 inline-grid h-6 w-6 shrink-0 place-items-center text-xs font-bold " +
                   (isCurrent
-                    ? "border-sky-300/75 text-sky-200"
+                    ? "text-[var(--ds-color-primary)]"
                     : isCompleted
-                      ? "border-emerald-300/75 text-emerald-200"
-                      : "border-slate-400/45 text-slate-300")
+                      ? "text-[var(--ds-color-success)]"
+                      : "ds-text-muted")
                 }
               >
                 {isCompleted ? "✓" : index + 1}
               </span>
               <span className="min-w-0">
-                <span className="block text-sm font-semibold text-slate-100">
+                <span className="ds-text block text-sm font-semibold">
                   {step.title}
                 </span>
                 {step.description ? (
                   <span
                     className={
                       "mt-0.5 hidden text-xs sm:block " +
-                      (isUpcoming ? "text-slate-400" : "text-slate-300")
+                      (isUpcoming ? "ds-text-muted" : "ds-text-soft")
                     }
                   >
                     {step.description}

@@ -22,7 +22,7 @@ export const Default: Story = {
   args: {
     children: (
       <Card className="p-4">
-        <p className="text-primary">
+        <p className="ds-text">
           This block reveals on first viewport entry.
         </p>
       </Card>

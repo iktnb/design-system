@@ -27,7 +27,7 @@ export function NeonProgressButton({
   return (
     <div className={`relative h-12 w-12 ${className}`}>
       <svg
-        className="-rotate-90 absolute inset-0 h-full w-full drop-shadow-[0_0_10px_rgba(56,189,248,0.9)]"
+        className="ds-progress-ring absolute inset-0 h-full w-full -rotate-90"
         viewBox="0 0 48 48"
         aria-hidden
       >
@@ -36,7 +36,7 @@ export function NeonProgressButton({
           cy="24"
           r="20"
           fill="none"
-          stroke="rgba(56,189,248,0.28)"
+          stroke="rgba(var(--ds-color-primary-rgb), 0.28)"
           strokeWidth="2.5"
         />
         <circle
@@ -47,7 +47,7 @@ export function NeonProgressButton({
           stroke="currentColor"
           strokeWidth="2.5"
           strokeLinecap="round"
-          className="text-accent-cyan transition-[stroke-dashoffset] duration-100 ease-out"
+          className="transition-[stroke-dashoffset] duration-100 ease-out"
           strokeDasharray={RING_CIRCUMFERENCE}
           strokeDashoffset={RING_CIRCUMFERENCE * (1 - safeProgress)}
         />
@@ -56,7 +56,7 @@ export function NeonProgressButton({
       <button
         type="button"
         onClick={onClick}
-        className="neon-glow-cyan absolute inset-[4px] flex items-center justify-center rounded-full border border-accent-cyan/70 bg-accent-cyan/20 text-accent-cyan shadow-[0_0_14px_rgba(56,189,248,0.55),inset_0_0_8px_rgba(56,189,248,0.2)] transition hover:scale-110 hover:border-accent-cyan hover:bg-accent-cyan/30 focus:outline-none focus:ring-2 focus:ring-accent-cyan/40 focus:ring-offset-2 focus:ring-offset-[var(--color-card)]"
+        className="ds-progress-button absolute inset-[4px] flex items-center justify-center rounded-full focus:outline-none"
         aria-label={ariaLabel}
       >
         {children}

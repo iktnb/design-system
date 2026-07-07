@@ -74,10 +74,10 @@ export function ProjectCard({
   return (
     <article
       className={
-        "grid gap-3 rounded-2xl border p-4 shadow-[0_0_20px_rgba(56,189,248,0.12)] " +
+        "grid gap-3 p-4 " +
         (health === ProjectCardHealth.MissingNextAction
-          ? "border-amber-400/45 bg-[linear-gradient(180deg,rgba(120,53,15,0.2),rgba(2,6,23,0.96))]"
-          : "border-slate-400/30 bg-[linear-gradient(180deg,rgba(15,23,42,0.92),rgba(2,6,23,0.96))]") +
+          ? "ds-project-card ds-project-card-warning"
+          : "ds-project-card") +
         " " +
         className
       }
@@ -85,14 +85,14 @@ export function ProjectCard({
       <header className="flex flex-wrap items-start justify-between gap-2">
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
-            <h3 className="m-0 text-base text-slate-100">{title}</h3>
+            <h3 className="ds-text m-0 text-base">{title}</h3>
             {health === ProjectCardHealth.MissingNextAction ? (
-              <span className="rounded-full border border-amber-300/60 bg-amber-300/20 px-2 py-0.5 text-[11px] font-semibold tracking-[0.02em] text-amber-100">
+              <span className="ds-badge-warning px-2 py-0.5 text-[11px] font-semibold tracking-[0.02em]">
                 {labels.missingNextAction}
               </span>
             ) : null}
           </div>
-          <p className="mt-1 mb-0 text-xs text-slate-300">
+          <p className="ds-text-muted mt-1 mb-0 text-xs">
             {labels.statusLabel}: {labels.statusMap[status]}
           </p>
         </div>
@@ -102,12 +102,12 @@ export function ProjectCard({
       {controls}
 
       <section aria-label={labels.linkedSection}>
-        <p className="mt-0 mb-2 text-xs font-semibold tracking-[0.02em] text-slate-300">
+        <p className="ds-text-muted mt-0 mb-2 text-xs font-semibold tracking-[0.02em]">
           {labels.linkedSection}
         </p>
         {linkedActions.length === 0 ? (
-          <div className="rounded-xl border border-slate-400/25 bg-slate-900/60 p-2.5">
-            <p className="m-0 text-sm text-slate-300">
+          <div className="ds-inner-panel p-2.5">
+            <p className="ds-text-muted m-0 text-sm">
               {labels.noLinkedActions}
             </p>
           </div>
@@ -116,13 +116,13 @@ export function ProjectCard({
             {linkedActions.map((linkedAction) => (
               <div
                 key={linkedAction.id}
-                className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-slate-400/25 bg-slate-900/60 p-2.5"
+                className="ds-inner-panel flex flex-wrap items-center justify-between gap-2 p-2.5"
               >
                 <div className="min-w-0 flex-1">
-                  <p className="m-0 text-sm text-slate-100">
+                  <p className="ds-text m-0 text-sm">
                     {linkedAction.title}
                   </p>
-                  <p className="mt-1 mb-0 text-xs text-slate-300">
+                  <p className="ds-text-muted mt-1 mb-0 text-xs">
                     {linkedAction.meta ?? labels.noContext} ·{" "}
                     {linkedAction.status}
                   </p>

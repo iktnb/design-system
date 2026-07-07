@@ -1,4 +1,5 @@
 import "../theme.css";
+import React from "react";
 import { create } from "storybook/theming";
 
 const docsTheme = create({
@@ -21,8 +22,43 @@ const docsTheme = create({
   inputBorderRadius: 8,
 });
 
+export const globalTypes = {
+  dsTheme: {
+    name: "Theme",
+    description: "Design system theme mode",
+    defaultValue: "neon",
+    toolbar: {
+      icon: "paintbrush",
+      items: [
+        { value: "neon", title: "Neon" },
+        { value: "admin-dark", title: "Admin dark" },
+        { value: "admin-light", title: "Admin light" },
+      ],
+      dynamicTitle: true,
+    },
+  },
+};
+
 /** @type { import('@storybook/react-vite').Preview } */
 const preview = {
+  decorators: [
+    (Story, context) => {
+      const theme = context.globals.dsTheme || "neon";
+
+      if (typeof document !== "undefined") {
+        document.documentElement.dataset.dsTheme = theme;
+      }
+
+      return React.createElement(
+        "div",
+        {
+          "data-ds-theme": theme,
+          className: "min-h-screen bg-background p-6 text-primary",
+        },
+        React.createElement(Story),
+      );
+    },
+  ],
   parameters: {
     layout: "centered",
     backgrounds: {

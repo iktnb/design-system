@@ -27,10 +27,13 @@ function IconGrid({ size = 28 }: { size?: number }) {
       {items.map(({ name, Icon }) => (
         <div
           key={name}
-          className="flex flex-col items-center gap-2 rounded-lg border border-white/10 bg-card p-3"
+          className="ds-card flex flex-col items-center gap-2 p-3"
         >
-          <Icon size={size} className="text-accent-cyan neon-icon-cyan" />
-          <span className="text-xs text-secondary">{name}</span>
+          <Icon
+            size={size}
+            className="neon-icon-cyan text-[var(--ds-color-primary)]"
+          />
+          <span className="ds-text-muted text-xs">{name}</span>
         </div>
       ))}
     </div>

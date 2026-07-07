@@ -225,16 +225,16 @@ export function NeonSelect<T extends string>({
         aria-expanded={isOpen}
         aria-controls={listboxId}
         disabled={disabled}
-        className={`group flex w-full items-center justify-between gap-2 rounded-[10px] border border-accent-cyan/40 bg-slate-900/80 px-3 py-2 text-left text-sm text-slate-200 shadow-[0_0_22px_rgba(56,189,248,0.16)] transition-all duration-200 hover:border-accent-cyan/75 hover:bg-slate-900/95 hover:shadow-[0_0_26px_rgba(56,189,248,0.28)] focus:outline-none focus:ring-2 focus:ring-accent-cyan/80 focus:ring-offset-2 focus:ring-offset-background disabled:cursor-not-allowed disabled:border-slate-700/60 disabled:text-slate-500 ${buttonClassName}`}
+        className={`ds-select-trigger group flex w-full items-center justify-between gap-2 px-3 py-2 text-left text-sm transition-all duration-200 focus:outline-none ${buttonClassName}`}
         onClick={() => (isOpen ? setIsOpen(false) : openAndHighlightSelected())}
         onKeyDown={handleKeyDown}
       >
-        <span className={selectedOption ? "text-slate-200" : "text-slate-400"}>
+        <span className={selectedOption ? "ds-text" : "ds-text-muted"}>
           {currentLabel}
         </span>
         <span
           aria-hidden
-          className={`text-[10px] text-accent-cyan transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+          className={`text-[10px] text-[var(--ds-color-primary)] transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
         >
           ▼
         </span>
@@ -248,7 +248,7 @@ export function NeonSelect<T extends string>({
             role="listbox"
             aria-labelledby={selectId}
             style={menuStyle ?? undefined}
-            className={`overflow-auto rounded-[10px] border border-accent-violet/45 bg-slate-950/95 p-1 shadow-[0_10px_36px_rgba(15,23,42,0.7),0_0_30px_rgba(167,139,250,0.28)] backdrop-blur-sm ${menuClassName}`}
+            className={`ds-select-menu p-1 ${menuClassName}`}
           >
             {options.map((option, index) => {
               const isSelected = option.value === value;
@@ -261,14 +261,14 @@ export function NeonSelect<T extends string>({
                   role="option"
                   aria-selected={isSelected}
                   disabled={option.disabled}
-                  className={`flex w-full items-center justify-between rounded-md px-2.5 py-2 text-sm transition-all duration-150 ${
+                  className={`ds-select-option flex w-full items-center justify-between px-2.5 py-2 text-sm ${
                     option.disabled
-                      ? "cursor-not-allowed text-slate-600"
+                      ? "ds-select-option-disabled"
                       : isHighlighted
-                        ? "bg-accent-cyan/15 text-accent-cyan shadow-[0_0_20px_rgba(56,189,248,0.18)]"
+                        ? "ds-select-option-highlighted"
                         : isSelected
-                          ? "bg-accent-violet/15 text-accent-violet"
-                          : "text-slate-200 hover:bg-slate-800/75"
+                          ? "ds-select-option-selected"
+                          : ""
                   }`}
                   onMouseEnter={() => setHighlightedIndex(index)}
                   onClick={() => {
@@ -280,7 +280,10 @@ export function NeonSelect<T extends string>({
                 >
                   <span>{option.label}</span>
                   {isSelected ? (
-                    <span className="text-xs text-accent-cyan" aria-hidden>
+                    <span
+                      className="text-xs text-[var(--ds-color-primary)]"
+                      aria-hidden
+                    >
                       ✓
                     </span>
                   ) : null}

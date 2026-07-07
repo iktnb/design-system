@@ -18,18 +18,16 @@ export function GlowButton({
   className = "",
 }: GlowButtonProps) {
   const base =
-    "group relative inline-flex min-h-[44px] min-w-[44px] items-center justify-center overflow-hidden rounded-md px-5 py-3 font-medium transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background active:scale-[0.98] sm:min-w-0 sm:px-6";
-  const cyan =
-    "border border-accent-cyan/50 bg-accent-cyan/5 text-accent-cyan hover:border-accent-cyan hover:bg-accent-cyan/15 hover:scale-[1.02] hover:shadow-[0_0_24px_rgba(56,189,248,0.35)] focus:ring-accent-cyan";
-  const violet =
-    "border border-accent-violet/50 bg-accent-violet/5 text-accent-violet hover:border-accent-violet hover:bg-accent-violet/15 hover:scale-[1.02] hover:shadow-[0_0_24px_rgba(167,139,250,0.35)] focus:ring-accent-violet";
+    "ds-button group px-5 py-3 focus:outline-none sm:min-w-0 sm:px-6";
+  const cyan = "ds-button-primary";
+  const violet = "ds-button-secondary";
 
   const styles = `${base} ${variant === "cyan" ? cyan : violet} ${className}`;
 
   const shimmerCyan =
-    "absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-accent-cyan/20 to-transparent transition-transform duration-500 group-hover:translate-x-full";
+    "ds-button-shimmer";
   const shimmerViolet =
-    "absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-accent-violet/20 to-transparent transition-transform duration-500 group-hover:translate-x-full";
+    "ds-button-shimmer";
 
   const content = (
     <>
