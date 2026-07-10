@@ -1,4 +1,7 @@
+"use client";
+
 import type { ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { Button } from "./Button";
 
 export type FeedbackTone = "info" | "success" | "warning" | "danger";
@@ -84,9 +87,14 @@ export function Toast({
   onAction?: () => void;
   onDismiss?: () => void;
 }) {
-  return (
+  if (typeof document === "undefined") {
+    return null;
+  }
+
+  return createPortal(
     <div
       className={`ds-toast ds-alert-${tone}`}
+      data-ds-overlay-layer="toast"
       role={tone === "danger" ? "alert" : "status"}
       aria-live={tone === "danger" ? "assertive" : "polite"}
     >
@@ -106,6 +114,7 @@ export function Toast({
           </Button>
         ) : null}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

@@ -63,6 +63,9 @@
     0 0 24px rgba(167, 139, 250, 0.3);
   --ds-focus-ring: 0 0 0 3px rgba(var(--ds-color-primary-rgb), 0.34);
   --ds-control-min-size: 44px;
+  --ds-z-dialog: 1000;
+  --ds-z-popover: 1100;
+  --ds-z-toast: 1200;
 }
 
 [data-ds-theme="admin-dark"] {
@@ -684,7 +687,7 @@
   .ds-dialog-overlay {
     position: fixed;
     inset: 0;
-    z-index: 1000;
+    z-index: var(--ds-z-dialog);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -922,7 +925,7 @@
 
   .ds-toast {
     position: fixed;
-    z-index: 1200;
+    z-index: var(--ds-z-toast);
     right: max(1rem, env(safe-area-inset-right));
     bottom: max(1rem, env(safe-area-inset-bottom));
     width: min(calc(100vw - 2rem), 28rem);

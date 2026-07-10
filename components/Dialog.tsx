@@ -77,7 +77,12 @@ export function Dialog({
     const overlay = overlayRef.current;
     const previousOverflow = document.body.style.overflow;
     const backgroundStates = Array.from(document.body.children)
-      .filter((element) => element !== overlay && !element.contains(overlay))
+      .filter(
+        (element) =>
+          element !== overlay &&
+          !element.contains(overlay) &&
+          element.getAttribute("data-ds-overlay-layer") !== "toast",
+      )
       .map((element) => ({
         element: element as HTMLElement,
         inert: (element as HTMLElement).inert,
@@ -175,6 +180,7 @@ export function Dialog({
             label={closeLabel}
             variant="quiet"
             size="small"
+            onClick={onClose}
           >
             <span aria-hidden>×</span>
           </IconButton>

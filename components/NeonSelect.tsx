@@ -65,7 +65,6 @@ export function NeonSelect<T extends string>({
   const VIEWPORT_MARGIN_PX = 8;
   const MENU_GAP_PX = 6;
   const DEFAULT_MENU_MAX_HEIGHT_PX = 280;
-  const MENU_Z_INDEX = 2147483000;
 
   const generatedId = useId();
   const selectId = id ?? `neon-select-${generatedId}`;
@@ -149,7 +148,7 @@ export function NeonSelect<T extends string>({
       width,
       maxHeight,
       transform: shouldOpenAbove ? "translateY(-100%)" : undefined,
-      zIndex: MENU_Z_INDEX,
+      zIndex: "var(--ds-z-popover)",
     });
   }, []);
 
